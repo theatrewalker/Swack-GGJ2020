@@ -391,6 +391,7 @@ MonoBehaviour:
   breakingUp: 0
   shaking: 0
   ExplosionForce: 200
+  collisionSound: {fileID: 8300000, guid: 3b8d52f4691474679ae095823eb07f33, type: 3}
 --- !u!114 &211776643277299835
 MonoBehaviour:
   m_ObjectHideFlags: 0
