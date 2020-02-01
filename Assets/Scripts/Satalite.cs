@@ -6,6 +6,9 @@ public class Satalite : MonoBehaviour
 {
     public float positionalSnapThreshold = 0.5f;
     public float rotationalSnapThreshold = 10f;
+    public float topBottomBounds = 4.5f;
+    public float TopBottomForce = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +27,15 @@ public class Satalite : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        var rb = GetComponent<Rigidbody2D>();
+        if (this.transform.position.y > topBottomBounds)
+        {
+            rb.AddForce(new Vector2(0, -TopBottomForce));
+        }
+        if (this.transform.position.y < -1 * topBottomBounds)
+        {
+            rb.AddForce(new Vector2(0, TopBottomForce));
+        }
     }
 
     public string getName()
