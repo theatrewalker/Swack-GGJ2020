@@ -3726,6 +3726,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasWon: 0
   hasStarted: 0
+  victorySound: {fileID: 8300000, guid: 814af1e14b8cf4e68a42fa3e6da6d8b4, type: 3}
+  explodeSound: {fileID: 8300000, guid: d69a25b289347421a89831fa5b59d3a4, type: 3}
 --- !u!4 &1082179666
 Transform:
   m_ObjectHideFlags: 0
@@ -4558,11 +4560,6 @@ PrefabInstance:
         type: 3}
       propertyPath: flingDistance
       value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 379401364953321347, guid: 3404b51ff88f7854b8e7fd348ade2030,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3461227544749056143, guid: 3404b51ff88f7854b8e7fd348ade2030,
         type: 3}
@@ -6956,7 +6953,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   materialIndex: 0
-  uvAnimationRate: {x: 0.001, y: 0.01}
+  uvAnimationRate: {x: 0.001, y: 0.05}
   textureName: _MainTex
 --- !u!64 &1830814916
 MeshCollider:

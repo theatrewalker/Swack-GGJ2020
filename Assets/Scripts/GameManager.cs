@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     static private GameManager gm;
     public bool hasWon = false;
     public bool hasStarted = false;
+    public AudioClip victorySound;
+    public AudioClip explodeSound;
 
     static public GameManager GlobalGameManager()
     {
@@ -30,6 +32,7 @@ public class GameManager : MonoBehaviour
         }
         await Task.Delay(TimeSpan.FromSeconds(3));
 
+        AudioSource.PlayClipAtPoint(explodeSound, this.transform.position);
         foreach (Satalite s in satalites) { 
             s.BreakUp();
             var rb = s.GetComponent<Rigidbody2D>();
@@ -49,6 +52,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     async void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
         if (hasStarted && !hasWon)
         {
             var satalites = FindObjectsOfType<Satalite>();
@@ -62,6 +69,7 @@ public class GameManager : MonoBehaviour
 
     async Task Victory()
     {
+        AudioSource.PlayClipAtPoint(victorySound, this.transform.position);
         hasWon = true;
         var satalites = FindObjectsOfType<Satalite>();
         for(var i = 0; i < 30; i++)

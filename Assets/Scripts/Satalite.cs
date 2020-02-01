@@ -20,6 +20,7 @@ public class Satalite : MonoBehaviour
     public bool shaking = true;
     public float ExplosionForce = 5f;
     public AudioClip collisionSound;
+    public AudioClip snapSound;
 
     private List<GameObject> overlappingObjects = new List<GameObject>();
 
@@ -93,6 +94,7 @@ public class Satalite : MonoBehaviour
     private void snap(Satalite other)
     {
         Debug.Log("SNAP!");
+        AudioSource.PlayClipAtPoint(snapSound, this.transform.position);
         other.transform.position = transform.position;
         other.GetComponent<Rigidbody2D>().rotation = GetComponent<Rigidbody2D>().rotation;
         var fj = this.gameObject.AddComponent<FixedJoint2D>();
@@ -116,11 +118,14 @@ public class Satalite : MonoBehaviour
         var other = col.collider.GetComponent<Satalite>();
         if (other)
         {
-            if (GameManager.GlobalGameManager().hasStarted)
+            if (!canConnectTo(other))
             {
-                AudioSource.PlayClipAtPoint(collisionSound, this.transform.position);
+                if (GameManager.GlobalGameManager().hasStarted)
+                {
+                    AudioSource.PlayClipAtPoint(collisionSound, this.transform.position);
+                }
+                return;
             }
-            if (!canConnectTo(other)) return;
             var rb = GetComponent<Rigidbody2D>();
             var otherRb = other.GetComponent<Rigidbody2D>();
             var rotationDifference = Quaternion.Angle(
@@ -130,12 +135,15 @@ public class Satalite : MonoBehaviour
             if (rotationDifference > rotationalSnapThreshold)
             {
                 Debug.Log("Rotation too different = "+rotationDifference);
+              
+                AudioSource.PlayClipAtPoint(collisionSound, this.transform.position);
                 return;
             }
             var positionalDifference = (rb.transform.position - otherRb.transform.position).magnitude;
             if (positionalDifference > positionalSnapThreshold)
             {
                 Debug.Log("positionalDifference too different = " + positionalDifference);
+                AudioSource.PlayClipAtPoint(collisionSound, this.transform.position);
                 return;
             }
             snap(other);
