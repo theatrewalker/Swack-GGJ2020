@@ -3696,6 +3696,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasWon: 0
   hasStarted: 0
+  VictorySound: {fileID: 8300000, guid: 814af1e14b8cf4e68a42fa3e6da6d8b4, type: 3}
+  ExplodeSound: {fileID: 8300000, guid: d69a25b289347421a89831fa5b59d3a4, type: 3}
 --- !u!4 &1082179666
 Transform:
   m_ObjectHideFlags: 0
