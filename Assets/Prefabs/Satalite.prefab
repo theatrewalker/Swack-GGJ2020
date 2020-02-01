@@ -193,7 +193,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 87452e903a41cdf428b6508a8ab9fdf7, type: 2}
   m_Interpolate: 0
@@ -381,6 +381,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   positionalSnapThreshold: 0.5
   rotationalSnapThreshold: 20
+  topBottomBounds: 4.5
+  TopBottomForce: 5
 --- !u!114 &211776643277299835
 MonoBehaviour:
   m_ObjectHideFlags: 0
