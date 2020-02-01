@@ -6,6 +6,7 @@ public class ScrollTeleporter : MonoBehaviour
 {
     public int vectorDirection = 1;
     public float teleportDistance = 4f;
+ 
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +20,18 @@ public class ScrollTeleporter : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Tele");
         var rb = other.GetComponent<Rigidbody2D>();
         if (Mathf.Sign(rb.velocity.x) == Mathf.Sign(vectorDirection))
         {
-            rb.position -= new Vector2(vectorDirection * teleportDistance, 0);
+         
+        } else
+        {
+
+            Debug.Log("Wrong Dir");
         }
+
     }
+
 
 }

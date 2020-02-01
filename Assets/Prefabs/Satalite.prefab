@@ -379,10 +379,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db6b10dbbb46f584894b8aa53f788f54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  positionalSnapThreshold: 0.5
+  positionalSnapThreshold: 1
   rotationalSnapThreshold: 20
   topBottomBounds: 4.5
   TopBottomForce: 5
+  ShakeSpeed: 50
+  ShakeAmount: 0.01
+  breakingUp: 0
+  shaking: 0
+  ExplosionForce: 200
 --- !u!114 &211776643277299835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,6 +400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d68ef2a89b02ebe43a7a9e488123e372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flingDistance: 0.25
-  flingForce: 5
+  flingDistance: 0.3
+  flingForce: 6
   grabbed: 0
