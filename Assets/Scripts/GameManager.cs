@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     static private GameManager gm;
     public bool hasWon = false;
+    public bool hasStarted = false;
 
     static public GameManager GlobalGameManager()
     {
@@ -42,12 +43,21 @@ public class GameManager : MonoBehaviour
         {
             s.StopBreakingUp();
         }
+        hasStarted = true;
     }
 
     // Update is called once per frame
-    void Update()
+    async void Update()
     {
-        
+        if (hasStarted && !hasWon)
+        {
+            var satalites = FindObjectsOfType<Satalite>();
+            foreach (Satalite s in satalites)
+            {
+                if (s.childCount != s.targetChildCount) return;
+            }
+            await Victory();
+        }
     }
 
     async Task Victory()
@@ -63,12 +73,12 @@ public class GameManager : MonoBehaviour
             }
             await Task.Delay(TimeSpan.FromSeconds(0.01));
         }
-        for (var i = 0; i < 30; i++)
+        for (var i = 0; i < 50; i++)
         {
             foreach (Satalite s in satalites)
             {
                 var rb = s.GetComponent<Rigidbody2D>();
-                rb.AddForce(new Vector3(10f, 0, 0));
+                rb.AddForce(new Vector3(20f, 0, 0));
             }
             await Task.Delay(TimeSpan.FromSeconds(0.01));
         }

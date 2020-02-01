@@ -1,9 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class Satalite : MonoBehaviour
 {
+    public int targetChildCount = 0;
+    public int childCount = 0;
     public float positionalSnapThreshold = 0.5f;
     public float rotationalSnapThreshold = 10f;
     public float topBottomBounds = 4.5f;
@@ -89,6 +94,7 @@ public class Satalite : MonoBehaviour
         other.GetComponent<Rigidbody2D>().rotation = GetComponent<Rigidbody2D>().rotation;
         var fj = this.gameObject.AddComponent<FixedJoint2D>();
         fj.connectedBody = other.GetComponent<Rigidbody2D>();
+        this.childCount++;
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -121,6 +127,7 @@ public class Satalite : MonoBehaviour
 
     public void BreakUp()
     {
+        this.childCount = 0;
         this.breakingUp = true;  
         FixedJoint2D[] joints = GetComponents<FixedJoint2D>();
         foreach (FixedJoint2D joint in joints)
@@ -133,8 +140,19 @@ public class Satalite : MonoBehaviour
         var rb = GetComponent<Rigidbody2D>();
         rb.AddForce(vecToCenter.normalized * ExplosionForce);
     }
-    public void StopBreakingUp()
+    public async Task StopBreakingUp()
     {
+        while (true)
+        {
+            if (this.GetComponent<PolygonCollider2D>().IsTouchingLayers(Physics2D.AllLayers))
+            {
+                await Task.Delay(TimeSpan.FromSeconds(0.01));
+            }
+            else
+            {
+                break;
+            }
+        }
         this.breakingUp = false;
         gameObject.layer = 0;
     }
