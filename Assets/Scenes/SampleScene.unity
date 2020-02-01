@@ -2136,6 +2136,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hasWon: 0
   hasStarted: 0
+  VictorySound: {fileID: 8300000, guid: 814af1e14b8cf4e68a42fa3e6da6d8b4, type: 3}
+  ExplodeSound: {fileID: 8300000, guid: d69a25b289347421a89831fa5b59d3a4, type: 3}
 --- !u!4 &1082179666
 Transform:
   m_ObjectHideFlags: 0
@@ -4980,6 +4982,11 @@ PrefabInstance:
       propertyPath: positionalSnapThreshold
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3461227545738181259, guid: 3404b51ff88f7854b8e7fd348ade2030,
+        type: 3}
+      propertyPath: ExplosionForce
+      value: 200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3404b51ff88f7854b8e7fd348ade2030, type: 3}
 --- !u!1 &1622997326
@@ -6194,6 +6201,11 @@ PrefabInstance:
         type: 3}
       propertyPath: positionalSnapThreshold
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461227545738181259, guid: 3404b51ff88f7854b8e7fd348ade2030,
+        type: 3}
+      propertyPath: ExplosionForce
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3404b51ff88f7854b8e7fd348ade2030, type: 3}

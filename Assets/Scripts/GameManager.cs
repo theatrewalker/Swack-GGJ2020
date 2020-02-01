@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     static private GameManager gm;
     public bool hasWon = false;
     public bool hasStarted = false;
+    public AudioClip VictorySound;
+    public AudioClip ExplodeSound;
 
     static public GameManager GlobalGameManager()
     {
@@ -20,7 +22,7 @@ public class GameManager : MonoBehaviour
     {
         if (!gm) gm = this;
         DontDestroyOnLoad(this.gameObject);
-
+    
         var satalites = FindObjectsOfType<Satalite>();
         foreach (Satalite s in satalites)
         {
@@ -28,6 +30,8 @@ public class GameManager : MonoBehaviour
             rb.AddTorque(15f);
             s.shaking = true;
         }
+        AudioSource.PlayClipAtPoint(ExplodeSound, this.transform.position);
+
         await Task.Delay(TimeSpan.FromSeconds(3));
 
         foreach (Satalite s in satalites) { 
@@ -63,6 +67,7 @@ public class GameManager : MonoBehaviour
     async Task Victory()
     {
         hasWon = true;
+        AudioSource.PlayClipAtPoint(VictorySound, this.transform.position);
         var satalites = FindObjectsOfType<Satalite>();
         for(var i = 0; i < 30; i++)
         {
