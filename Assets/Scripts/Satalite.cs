@@ -39,6 +39,10 @@ public class Satalite : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.GlobalGameManager().hasWon)
+        {
+            return;
+        }
         var rb = GetComponent<Rigidbody2D>();
         if (this.transform.position.y > topBottomBounds)
         {

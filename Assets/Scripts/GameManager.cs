@@ -6,10 +6,21 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    static private GameManager gm;
+    public bool hasWon = false;
+
+    static public GameManager GlobalGameManager()
+    {
+        return gm;
+    }
+
     // Start is called before the first frame update
     async void Start()
     {
-        
+        if (!gm) gm = this;
+        DontDestroyOnLoad(this.gameObject);
+
+
         var satalites = FindObjectsOfType<Satalite>();
         foreach (Satalite s in satalites)
         {
@@ -37,5 +48,29 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    async Task Victory()
+    {
+        hasWon = true;
+        var satalites = FindObjectsOfType<Satalite>();
+        for(var i = 0; i < 30; i++)
+        {
+            foreach (Satalite s in satalites)
+            {
+                s.GetComponent<SpriteRenderer>().color *= new Color(0.98f, 0.98f, 0.98f);
+                s.transform.localScale *= .99f;
+            }
+            await Task.Delay(TimeSpan.FromSeconds(0.01));
+        }
+        for (var i = 0; i < 30; i++)
+        {
+            foreach (Satalite s in satalites)
+            {
+                var rb = s.GetComponent<Rigidbody2D>();
+                rb.AddForce(new Vector3(10f, 0, 0));
+            }
+            await Task.Delay(TimeSpan.FromSeconds(0.01));
+        }
     }
 }
