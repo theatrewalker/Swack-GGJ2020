@@ -379,6 +379,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db6b10dbbb46f584894b8aa53f788f54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetChildCount: 0
+  childCount: 0
   positionalSnapThreshold: 1
   rotationalSnapThreshold: 20
   topBottomBounds: 4.5
