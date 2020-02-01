@@ -116,7 +116,10 @@ public class Satalite : MonoBehaviour
         var other = col.collider.GetComponent<Satalite>();
         if (other)
         {
-            AudioSource.PlayClipAtPoint(collisionSound, this.transform.position);
+            if (GameManager.GlobalGameManager().hasStarted)
+            {
+                AudioSource.PlayClipAtPoint(collisionSound, this.transform.position);
+            }
             if (!canConnectTo(other)) return;
             var rb = GetComponent<Rigidbody2D>();
             var otherRb = other.GetComponent<Rigidbody2D>();
