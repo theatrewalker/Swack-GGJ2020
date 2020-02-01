@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
         if (!gm) gm = this;
         DontDestroyOnLoad(this.gameObject);
 
-
         var satalites = FindObjectsOfType<Satalite>();
         foreach (Satalite s in satalites)
         {
@@ -30,6 +29,7 @@ public class GameManager : MonoBehaviour
             s.shaking = true;
         }
         await Task.Delay(TimeSpan.FromSeconds(3));
+
         foreach (Satalite s in satalites) { 
             s.BreakUp();
             var rb = s.GetComponent<Rigidbody2D>();

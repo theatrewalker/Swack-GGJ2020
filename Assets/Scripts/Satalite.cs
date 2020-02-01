@@ -19,6 +19,7 @@ public class Satalite : MonoBehaviour
     public bool breakingUp = false;
     public bool shaking = true;
     public float ExplosionForce = 5f;
+    public AudioClip collisionSound;
 
 
     // Start is called before the first frame update
@@ -103,6 +104,7 @@ public class Satalite : MonoBehaviour
         var other = col.collider.GetComponent<Satalite>();
         if (other)
         {
+            AudioSource.PlayClipAtPoint(collisionSound, this.transform.position);
             if (!canConnectTo(other)) return;
             var rb = GetComponent<Rigidbody2D>();
             var otherRb = other.GetComponent<Rigidbody2D>();

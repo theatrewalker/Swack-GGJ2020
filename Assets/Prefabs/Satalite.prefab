@@ -379,6 +379,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db6b10dbbb46f584894b8aa53f788f54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetChildCount: 0
+  childCount: 0
   positionalSnapThreshold: 1
   rotationalSnapThreshold: 20
   topBottomBounds: 4.5
@@ -389,6 +391,7 @@ MonoBehaviour:
   breakingUp: 0
   shaking: 0
   ExplosionForce: 200
+  collisionSound: {fileID: 8300000, guid: 3b8d52f4691474679ae095823eb07f33, type: 3}
 --- !u!114 &211776643277299835
 MonoBehaviour:
   m_ObjectHideFlags: 0
