@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
             foreach (Satalite s in satalites)
             {
                 var rb = s.GetComponent<Rigidbody2D>();
-                rb.AddForce(new Vector3(20f, 0, 0));
+                rb.AddForce(new Vector3(-20f, 0, 0));
             }
             await Task.Delay(TimeSpan.FromSeconds(0.01));
         }

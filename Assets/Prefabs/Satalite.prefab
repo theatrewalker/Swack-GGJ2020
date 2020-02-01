@@ -384,10 +384,10 @@ MonoBehaviour:
   positionalSnapThreshold: 1
   rotationalSnapThreshold: 20
   topBottomBounds: 4.5
-  leftRightBounds: 10
+  leftRightBounds: 11
   TopBottomForce: 5
-  ShakeSpeed: 50
-  ShakeAmount: 0.01
+  ShakeSpeed: 80
+  ShakeAmount: 0.02
   breakingUp: 0
   shaking: 0
   ExplosionForce: 200

@@ -21,6 +21,8 @@ public class Satalite : MonoBehaviour
     public float ExplosionForce = 5f;
     public AudioClip collisionSound;
 
+    private List<GameObject> overlappingObjects = new List<GameObject>();
+
 
     // Start is called before the first frame update
     void Start()
@@ -98,6 +100,16 @@ public class Satalite : MonoBehaviour
         this.childCount++;
     }
 
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        overlappingObjects.Add(col.gameObject);
+    }
+
+    void OnTriggerExit2D(Collider2D col)
+    {
+        overlappingObjects.Remove(col.gameObject);
+    }
+
     void OnCollisionEnter2D(Collision2D col)
     {
         if (breakingUp) return;
@@ -129,6 +141,7 @@ public class Satalite : MonoBehaviour
 
     public void BreakUp()
     {
+        GetComponent<PolygonCollider2D>().isTrigger = true;
         this.childCount = 0;
         this.breakingUp = true;  
         FixedJoint2D[] joints = GetComponents<FixedJoint2D>();
@@ -137,25 +150,33 @@ public class Satalite : MonoBehaviour
             Destroy(joint);
             Debug.Log(joint);
         }
-        gameObject.layer = 8;
         Vector3 vecToCenter =  getCOM() - this.transform.position;
         var rb = GetComponent<Rigidbody2D>();
         rb.AddForce(vecToCenter.normalized * ExplosionForce);
+       // this.GetComponent<SpriteRenderer>().color = Color.red;
     }
     public async Task StopBreakingUp()
     {
+        int successCount = 0;
         while (true)
         {
-            if (this.GetComponent<PolygonCollider2D>().IsTouchingLayers(Physics2D.AllLayers))
+            if (overlappingObjects.Count != 0)
             {
+                successCount = 0;
                 await Task.Delay(TimeSpan.FromSeconds(0.01));
             }
             else
             {
-                break;
+                successCount++;
+                if(successCount > 10)
+                {
+                    break;
+                }
             }
         }
+        this.GetComponent<SpriteRenderer>().color = Color.white;
         this.breakingUp = false;
-        gameObject.layer = 0;
+        this.shaking = false;
+        GetComponent<PolygonCollider2D>().isTrigger = false;
     }
 }

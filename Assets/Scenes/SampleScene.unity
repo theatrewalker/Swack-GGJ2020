@@ -1931,6 +1931,11 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[110].y
       value: -2.22
       objectReference: {fileID: 0}
+    - target: {fileID: 3461227545738181258, guid: 3404b51ff88f7854b8e7fd348ade2030,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3461227545738181259, guid: 3404b51ff88f7854b8e7fd348ade2030,
         type: 3}
       propertyPath: targetChildCount

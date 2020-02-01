@@ -10,6 +10,9 @@ public class Flingable : MonoBehaviour
     private Vector3 offset;
     private Vector3 screenPoint;
     private Vector3 origPosition;
+
+    private Vector2 retainedVel;
+    private float retainedAngularVel;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,8 +31,18 @@ public class Flingable : MonoBehaviour
         offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
         origPosition = transform.position;
         var rb = GetComponent<Rigidbody2D>();
+        retainedAngularVel = rb.angularVelocity;
+        retainedVel = rb.velocity;
         rb.velocity = new Vector2(0, 0);
         rb.angularVelocity = 0;
+    }
+
+    void OnMouseUp()
+    {
+        if (!grabbed) return;
+        var rb = GetComponent<Rigidbody2D>();
+        rb.velocity = retainedVel;
+        rb.angularVelocity = retainedAngularVel;
     }
 
     void OnMouseDrag()
