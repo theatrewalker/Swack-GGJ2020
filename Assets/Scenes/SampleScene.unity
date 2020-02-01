@@ -340,15 +340,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1015372051}
     m_Modifications:
+    - target: {fileID: 211776643277299835, guid: 3404b51ff88f7854b8e7fd348ade2030,
+        type: 3}
+      propertyPath: flingForce
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 211776643277299835, guid: 3404b51ff88f7854b8e7fd348ade2030,
+        type: 3}
+      propertyPath: flingDistance
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 3461227544749056143, guid: 3404b51ff88f7854b8e7fd348ade2030,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.23
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 3461227544749056143, guid: 3404b51ff88f7854b8e7fd348ade2030,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.24
+      value: 0.23
       objectReference: {fileID: 0}
     - target: {fileID: 3461227545738181254, guid: 3404b51ff88f7854b8e7fd348ade2030,
         type: 3}
@@ -399,7 +409,7 @@ PrefabInstance:
     - target: {fileID: 3461227545738181256, guid: 3404b51ff88f7854b8e7fd348ade2030,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3461227545738181256, guid: 3404b51ff88f7854b8e7fd348ade2030,
         type: 3}
@@ -1091,6 +1101,11 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[63].y
       value: -0.72999996
       objectReference: {fileID: 0}
+    - target: {fileID: 3461227545738181259, guid: 3404b51ff88f7854b8e7fd348ade2030,
+        type: 3}
+      propertyPath: positionalSnapThreshold
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3404b51ff88f7854b8e7fd348ade2030, type: 3}
 --- !u!4 &929138534 stripped
@@ -1383,6 +1398,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1015372051}
     m_Modifications:
+    - target: {fileID: 211776643277299835, guid: 3404b51ff88f7854b8e7fd348ade2030,
+        type: 3}
+      propertyPath: flingForce
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 211776643277299835, guid: 3404b51ff88f7854b8e7fd348ade2030,
+        type: 3}
+      propertyPath: flingDistance
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461227544749056143, guid: 3404b51ff88f7854b8e7fd348ade2030,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461227544749056143, guid: 3404b51ff88f7854b8e7fd348ade2030,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.16
+      objectReference: {fileID: 0}
     - target: {fileID: 3461227545738181254, guid: 3404b51ff88f7854b8e7fd348ade2030,
         type: 3}
       propertyPath: m_Name
@@ -2594,6 +2629,11 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[110].y
       value: -2.22
       objectReference: {fileID: 0}
+    - target: {fileID: 3461227545738181259, guid: 3404b51ff88f7854b8e7fd348ade2030,
+        type: 3}
+      propertyPath: positionalSnapThreshold
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3404b51ff88f7854b8e7fd348ade2030, type: 3}
 --- !u!1 &1082179664
@@ -2769,6 +2809,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1015372051}
     m_Modifications:
+    - target: {fileID: 211776643277299835, guid: 3404b51ff88f7854b8e7fd348ade2030,
+        type: 3}
+      propertyPath: flingForce
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 211776643277299835, guid: 3404b51ff88f7854b8e7fd348ade2030,
+        type: 3}
+      propertyPath: flingDistance
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461227544749056143, guid: 3404b51ff88f7854b8e7fd348ade2030,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461227544749056143, guid: 3404b51ff88f7854b8e7fd348ade2030,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.94
+      objectReference: {fileID: 0}
     - target: {fileID: 3461227545738181254, guid: 3404b51ff88f7854b8e7fd348ade2030,
         type: 3}
       propertyPath: m_Name
@@ -2818,7 +2878,7 @@ PrefabInstance:
     - target: {fileID: 3461227545738181256, guid: 3404b51ff88f7854b8e7fd348ade2030,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3461227545738181256, guid: 3404b51ff88f7854b8e7fd348ade2030,
         type: 3}
@@ -3420,6 +3480,11 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[54].y
       value: -0.53999996
       objectReference: {fileID: 0}
+    - target: {fileID: 3461227545738181259, guid: 3404b51ff88f7854b8e7fd348ade2030,
+        type: 3}
+      propertyPath: positionalSnapThreshold
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3404b51ff88f7854b8e7fd348ade2030, type: 3}
 --- !u!1001 &1309850072
@@ -3429,6 +3494,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1015372051}
     m_Modifications:
+    - target: {fileID: 211776643277299835, guid: 3404b51ff88f7854b8e7fd348ade2030,
+        type: 3}
+      propertyPath: flingForce
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 211776643277299835, guid: 3404b51ff88f7854b8e7fd348ade2030,
+        type: 3}
+      propertyPath: flingDistance
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461227544749056143, guid: 3404b51ff88f7854b8e7fd348ade2030,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.35
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461227544749056143, guid: 3404b51ff88f7854b8e7fd348ade2030,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.31
+      objectReference: {fileID: 0}
     - target: {fileID: 3461227545738181254, guid: 3404b51ff88f7854b8e7fd348ade2030,
         type: 3}
       propertyPath: m_Name
@@ -3478,7 +3563,7 @@ PrefabInstance:
     - target: {fileID: 3461227545738181256, guid: 3404b51ff88f7854b8e7fd348ade2030,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3461227545738181256, guid: 3404b51ff88f7854b8e7fd348ade2030,
         type: 3}
@@ -4029,6 +4114,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[49].y
       value: -0.22999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3461227545738181259, guid: 3404b51ff88f7854b8e7fd348ade2030,
+        type: 3}
+      propertyPath: positionalSnapThreshold
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3404b51ff88f7854b8e7fd348ade2030, type: 3}
