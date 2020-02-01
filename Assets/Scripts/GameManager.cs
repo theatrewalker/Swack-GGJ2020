@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     async void Start()
     {
+        
         var satalites = FindObjectsOfType<Satalite>();
         foreach (Satalite s in satalites)
         {
