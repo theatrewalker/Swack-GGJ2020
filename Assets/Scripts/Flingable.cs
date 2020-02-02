@@ -13,6 +13,7 @@ public class Flingable : MonoBehaviour
 
     private Vector2 retainedVel;
     private float retainedAngularVel;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +27,10 @@ public class Flingable : MonoBehaviour
 
     void OnMouseDown()
     {
+        if (!GameManager.GlobalGameManager().hasStarted)
+        {
+            return;
+        }
         grabbed = true;
         screenPoint = Camera.main.WorldToScreenPoint(transform.position);
         offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
