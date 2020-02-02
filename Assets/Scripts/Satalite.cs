@@ -79,12 +79,13 @@ public class Satalite : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        var rb = GetComponent<Rigidbody2D>();
+        rb.centerOfMass = getCOM();
         if (arrowEnabled) UpdateArrow();
         if (LevelManager.CurrentLevel().hasWon)
         {
             return;
         }
-        var rb = GetComponent<Rigidbody2D>();
         if (this.transform.position.y > topBottomBounds)
         {
             rb.AddForce(new Vector2(0, -TopBottomForce));

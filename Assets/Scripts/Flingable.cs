@@ -13,16 +13,24 @@ public class Flingable : MonoBehaviour
 
     private Vector2 retainedVel;
     private float retainedAngularVel;
+    private float BASE_SCALE;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        this.BASE_SCALE = transform.localScale.x;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        bool focus =  (!LevelManager.CurrentLevel().hasWon) && grabbed;
+        var targetColor = focus ? Color.cyan : Color.white;
+        var targetScaleAmount = BASE_SCALE * (focus ? 1.05f : 1);
+        var targetScale = new Vector3(targetScaleAmount, targetScaleAmount, targetScaleAmount);
+        GetComponent<SpriteRenderer>().color = Color.Lerp(GetComponent<SpriteRenderer>().color, targetColor, 5f * Time.deltaTime);
+        transform.localScale = Vector3.Lerp(this.transform.localScale, targetScale, 5f * Time.deltaTime);
     }
 
     void OnMouseDown()
@@ -45,6 +53,7 @@ public class Flingable : MonoBehaviour
     void OnMouseUp()
     {
         if (!grabbed) return;
+        grabbed = false;
         var rb = GetComponent<Rigidbody2D>();
         rb.velocity = retainedVel;
         rb.angularVelocity = retainedAngularVel;
