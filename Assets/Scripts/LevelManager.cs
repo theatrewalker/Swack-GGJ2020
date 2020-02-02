@@ -41,11 +41,11 @@ public class LevelManager : MonoBehaviour
             rb.AddTorque(UnityEngine.Random.Range(-80.0f, 80.0f));
         }
         await Task.Delay(TimeSpan.FromSeconds(2));
+        hasStarted = true;
         foreach (Satalite s in satalites)
         {
             s.StopBreakingUp();
         }
-        hasStarted = true;
     }
 
     // Update is called once per frame
@@ -60,7 +60,11 @@ public class LevelManager : MonoBehaviour
             var satalites = FindObjectsOfType<Satalite>();
             foreach (Satalite s in satalites)
             {
-                if (s.childCount != s.targetChildCount) return;
+                if (s.childCount != s.targetChildCount)
+                {
+                    Debug.Log(s.name + " Blocking victory");
+                    return;
+                }
             }
             await Victory();
         }
@@ -75,6 +79,7 @@ public class LevelManager : MonoBehaviour
         {
             foreach (Satalite s in satalites)
             {
+                Debug.Log(s);
                 s.GetComponent<SpriteRenderer>().color *= new Color(0.98f, 0.98f, 0.98f);
                 s.transform.localScale *= .99f;
             }
@@ -89,5 +94,7 @@ public class LevelManager : MonoBehaviour
             }
             await Task.Delay(TimeSpan.FromSeconds(0.01));
         }
+        await Task.Delay(TimeSpan.FromSeconds(2));
+        await SceneChangeManager.FadeToScene("MainMenu");
     }
 }
