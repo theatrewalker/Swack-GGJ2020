@@ -94,7 +94,10 @@ public class Satalite : MonoBehaviour
     private void snap(Satalite other)
     {
         Debug.Log("SNAP!");
-        AudioSource.PlayClipAtPoint(snapSound, this.transform.position);
+        if (GameManager.GlobalGameManager().hasStarted)
+        {
+            AudioSource.PlayClipAtPoint(snapSound, this.transform.position);
+        }
         other.transform.position = transform.position;
         other.GetComponent<Rigidbody2D>().rotation = GetComponent<Rigidbody2D>().rotation;
         var fj = this.gameObject.AddComponent<FixedJoint2D>();
