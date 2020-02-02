@@ -63,7 +63,7 @@ public class Satalite : MonoBehaviour
     {
         var target = this.getCOM() + this.transform.position;
         var dist = target.magnitude;
-        if (dist > arrowThreshold)
+        if (dist > arrowThreshold && !LevelManager.CurrentLevel().hasWon)
         {
             arrow.GetComponent<SpriteRenderer>().color = Color.white;
         }else
