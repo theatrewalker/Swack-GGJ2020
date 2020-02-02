@@ -3729,6 +3729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 037bc86adeacda1408ade4e067158334, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NextScene: Level2
   hasWon: 0
   hasStarted: 0
   victorySound: {fileID: 8300000, guid: 814af1e14b8cf4e68a42fa3e6da6d8b4, type: 3}

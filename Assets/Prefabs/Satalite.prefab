@@ -479,7 +479,7 @@ MonoBehaviour:
   snapSound: {fileID: 8300000, guid: dacfa39c8802b41fe8378eecfbd9287f, type: 3}
   arrow: {fileID: 5897751095856730978}
   arrowEnabled: 0
-  arrowScale: 3.25
+  arrowScale: 2.2
 --- !u!114 &211776643277299835
 MonoBehaviour:
   m_ObjectHideFlags: 0
