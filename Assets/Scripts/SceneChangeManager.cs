@@ -25,7 +25,7 @@ public class SceneChangeManager : MonoBehaviour
         }
         else
         {
-            Destroy(this);
+            Destroy(this.gameObject);
         }
         this.blackoutSprite = GetComponent<SpriteRenderer>();
         blackoutSprite.color = trasparent;

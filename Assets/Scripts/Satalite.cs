@@ -19,8 +19,13 @@ public class Satalite : MonoBehaviour
     public bool breakingUp = false;
     public bool shaking = true;
     public float ExplosionForce = 5f;
+    public float arrowThreshold = 8f;
     public AudioClip collisionSound;
     public AudioClip snapSound;
+
+    public GameObject arrow;
+    public bool arrowEnabled = false;
+    public float arrowScale = 3.5f;
 
     private List<GameObject> overlappingObjects = new List<GameObject>();
 
@@ -30,6 +35,15 @@ public class Satalite : MonoBehaviour
     {
         var rb = GetComponent<Rigidbody2D>();
         rb.centerOfMass = getCOM();
+        if (arrowEnabled)
+        {
+            arrow.transform.localScale = new Vector3(arrowScale, arrowScale, arrowScale);
+            arrow.transform.position = Vector3.zero;
+        }
+        else
+        {
+            Destroy(arrow);
+        }
     }
 
     Vector3 getCOM()
@@ -45,10 +59,29 @@ public class Satalite : MonoBehaviour
         throw new System.Exception("Satalite has no Center of Mass object, must be named 'COM'");
     }
 
+    void UpdateArrow()
+    {
+        var target = this.getCOM() + this.transform.position;
+        var dist = target.magnitude;
+        if (dist > arrowThreshold)
+        {
+            this.GetComponent<SpriteRenderer>().color = Color.white;
+        }else
+        {
+            var transparent = new Color(255, 255, 255, 0);
+            this.GetComponent<SpriteRenderer>().color = transparent;
+        }
+        arrow.transform.position = Vector3.zero;
+        arrow.transform.rotation = Quaternion.LookRotation(Vector3.forward, target);
+        Debug.Log(arrow.transform.rotation);
+        //arrow.transform.LookAt(target);
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.GlobalGameManager().hasWon)
+        if (arrowEnabled) UpdateArrow();
+        if (LevelManager.CurrentLevel().hasWon)
         {
             return;
         }
@@ -94,7 +127,7 @@ public class Satalite : MonoBehaviour
     private void snap(Satalite other)
     {
         Debug.Log("SNAP!");
-        if (GameManager.GlobalGameManager().hasStarted)
+        if (LevelManager.CurrentLevel().hasStarted)
         {
             AudioSource.PlayClipAtPoint(snapSound, this.transform.position);
         }
@@ -123,7 +156,7 @@ public class Satalite : MonoBehaviour
         {
             if (!canConnectTo(other))
             {
-                if (GameManager.GlobalGameManager().hasStarted)
+                if (LevelManager.CurrentLevel().hasStarted)
                 {
                     AudioSource.PlayClipAtPoint(collisionSound, this.transform.position);
                 }

@@ -4,15 +4,15 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class LevelManager : MonoBehaviour
 {
-    static private GameManager gm;
+    static private LevelManager gm;
     public bool hasWon = false;
     public bool hasStarted = false;
     public AudioClip victorySound;
     public AudioClip explodeSound;
 
-    static public GameManager GlobalGameManager()
+    static public LevelManager CurrentLevel()
     {
         return gm;
     }
@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
     async void Start()
     {
         if (!gm) gm = this;
-        DontDestroyOnLoad(this.gameObject);
 
         var satalites = FindObjectsOfType<Satalite>();
         foreach (Satalite s in satalites)

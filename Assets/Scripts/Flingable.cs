@@ -27,7 +27,7 @@ public class Flingable : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (!GameManager.GlobalGameManager().hasStarted)
+        if (!LevelManager.CurrentLevel().hasStarted)
         {
             return;
         }
