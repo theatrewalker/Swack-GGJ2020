@@ -51,10 +51,6 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     async void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
         if (hasStarted && !hasWon)
         {
             var satalites = FindObjectsOfType<Satalite>();

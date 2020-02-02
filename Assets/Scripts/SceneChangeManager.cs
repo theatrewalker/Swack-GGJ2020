@@ -43,6 +43,10 @@ public class SceneChangeManager : MonoBehaviour
         {
             blackoutSprite.color = Color.Lerp(blackoutSprite.color, trasparent, FadeTime * Time.deltaTime);
         }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     public static async Task FadeToScene(string Scene)
