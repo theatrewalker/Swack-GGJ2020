@@ -65,15 +65,14 @@ public class Satalite : MonoBehaviour
         var dist = target.magnitude;
         if (dist > arrowThreshold)
         {
-            this.GetComponent<SpriteRenderer>().color = Color.white;
+            arrow.GetComponent<SpriteRenderer>().color = Color.white;
         }else
         {
             var transparent = new Color(255, 255, 255, 0);
-            this.GetComponent<SpriteRenderer>().color = transparent;
+            arrow.GetComponent<SpriteRenderer>().color = transparent;
         }
         arrow.transform.position = Vector3.zero;
         arrow.transform.rotation = Quaternion.LookRotation(Vector3.forward, target);
-        Debug.Log(arrow.transform.rotation);
         //arrow.transform.LookAt(target);
     }
 

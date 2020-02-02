@@ -474,11 +474,12 @@ MonoBehaviour:
   breakingUp: 0
   shaking: 0
   ExplosionForce: 200
+  arrowThreshold: 8.5
   collisionSound: {fileID: 8300000, guid: 8a8481a88593f4ef78a33a3d7bbb6994, type: 3}
   snapSound: {fileID: 8300000, guid: dacfa39c8802b41fe8378eecfbd9287f, type: 3}
   arrow: {fileID: 5897751095856730978}
   arrowEnabled: 0
-  arrowScale: 3
+  arrowScale: 3.25
 --- !u!114 &211776643277299835
 MonoBehaviour:
   m_ObjectHideFlags: 0
