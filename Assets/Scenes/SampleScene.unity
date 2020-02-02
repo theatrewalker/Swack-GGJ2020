@@ -5732,6 +5732,11 @@ PrefabInstance:
       propertyPath: arrowEnabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3461227545738181259, guid: 3404b51ff88f7854b8e7fd348ade2030,
+        type: 3}
+      propertyPath: snapSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 3ddf6bf175fb74bc69ecd9a6eb305bbe, type: 3}
     - target: {fileID: 3906951486764815555, guid: 3404b51ff88f7854b8e7fd348ade2030,
         type: 3}
       propertyPath: m_LocalPosition.y
