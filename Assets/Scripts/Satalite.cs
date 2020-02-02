@@ -33,6 +33,7 @@ public class Satalite : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.arrowScale /= this.transform.localScale.x;
         var rb = GetComponent<Rigidbody2D>();
         rb.centerOfMass = getCOM();
         if (arrowEnabled)
@@ -52,7 +53,7 @@ public class Satalite : MonoBehaviour
         {
             if (o.name == "COM")
             {
-                var com = o.transform.localPosition;
+                var com = o.transform.localPosition * this.transform.localScale.x;
                 return com;
             }
         }
@@ -129,7 +130,7 @@ public class Satalite : MonoBehaviour
         Debug.Log("SNAP!");
         if (LevelManager.CurrentLevel().hasStarted)
         {
-            AudioSource.PlayClipAtPoint(snapSound, this.transform.position);
+            AudioSource.PlayClipAtPoint(other.snapSound, this.transform.position);
         }
         other.transform.position = transform.position;
         other.GetComponent<Rigidbody2D>().rotation = GetComponent<Rigidbody2D>().rotation;

@@ -17,7 +17,7 @@ public class MainMenuManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !hasClicked)
         {
             hasClicked = true;
-            await SceneChangeManager.FadeToScene("SampleScene");
+            await SceneChangeManager.FadeToScene("Level1");
         }
     }
 }

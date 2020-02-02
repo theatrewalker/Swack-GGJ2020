@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
+    public string NextScene = "MainMenu";
     static private LevelManager gm;
     public bool hasWon = false;
     public bool hasStarted = false;
@@ -56,7 +57,7 @@ public class LevelManager : MonoBehaviour
             var satalites = FindObjectsOfType<Satalite>();
             foreach (Satalite s in satalites)
             {
-                if (s.childCount != s.targetChildCount)
+                if (s.childCount < s.targetChildCount)
                 {
                     Debug.Log(s.name + " Blocking victory");
                     return;
@@ -91,6 +92,6 @@ public class LevelManager : MonoBehaviour
             await Task.Delay(TimeSpan.FromSeconds(0.01));
         }
         await Task.Delay(TimeSpan.FromSeconds(2));
-        await SceneChangeManager.FadeToScene("MainMenu");
+        await SceneChangeManager.FadeToScene(NextScene);
     }
 }
