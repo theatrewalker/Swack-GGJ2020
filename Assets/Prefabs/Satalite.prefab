@@ -275,7 +275,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0.3
+  m_LinearDrag: 0.25
   m_AngularDrag: 0.01
   m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 87452e903a41cdf428b6508a8ab9fdf7, type: 2}
@@ -493,7 +493,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   flingDistance: 0.3
-  flingForce: 6
+  flingForce: 7
   grabbed: 0
 --- !u!1 &5897751095856730978
 GameObject:
